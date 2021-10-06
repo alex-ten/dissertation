@@ -1,0 +1,41 @@
+%************************************************
+\chapter{Discussion}\label{ch:discussion}
+%************************************************
+
+
+\section{Summary}
+
+\section{Limitations}
+
+Need for explicit modeling of learning process.
+
+Need for operational definitions based on mechanistic process theories
+
+\subsection{Perception}
+
+    Arousal of curiosity is due to encounters with stimulus-events characterized as novel, complex, or ambiguous. These characteristics imply that information about said stimulus-events is missing. Thus, curiosity is aroused when the observer detects deficiencies in its knowledge. While terms like "novel", "complex", and "ambiguous" are typically used to describe stimuli, it would be more accurate to say that they describe particular states of the observer's representations activated by the stimuli. Thus, novelty, complexity, and ambiguity are products of subjective perception, not objective features of the stimuli.
+
+    Consider one of the current accounts of visual perception. The process by which objects are perceived as such can be understood as a sequence of inferences of progressively higher-level representational encodings simultaneously informed by bottom-up activity (the data) and constrained by top-down activity (prior knowledge; Bruno Olshausen, 2013, In The Cognitive Neurosciences, Gazzaniga & Mangun (Eds)). Somewhere along this hierarchical inferrential process, the brain encodes objects at their basic conceptual level (Rosch or Murphy) and the activation of these basic-level representations initiates the cascading of top-down constraints onto the progressively lower-level features.
+
+    This process involves a bidirectional guesswork: at any level of encoding, a feature-encoding neuron has to "decide" whether to fire or not based on the inputs it receives from the bottom as "data" and inputs it receives from the top as "knowledge". In this context, "knowledge" can be characterized as consisting of two parts. The first part is the baseline firing tendency of the neuron or its readiness to fire. It is important to note that this "baseline" probability is not fixed but mediated by the activity of neurons encoding higher-level features. This firing readiness can be formally expressed as the prior probability of the feature encoded by the neuron *conditional on the activity of higher-level neurons*. The second part of the "knowledge" is the likelihood that the incoming data can excite the feature-encoding neuron. This can be formalized as the likelihood of low-level data given the feature neuron. 
+
+    This kind of hierarchical Bayesian-inference system can be been implemented in a computational model consisting of a neural network with interactive-activation units (McClelland, 2013) organized into at least 3 layers. Each layer encodes increasingly higher-level features. The bottom layer consists of neurons that "sense the raw data", the middle layer consists of neurons that encode letters, and the top layer consists of neurons that encode words. Thus the first feature-encoding layer is the middle layer. Neurons in this layer receive data via weighted connections from the bottom layer. This weighted data corresponds to the likelihood part of the system's knowledge. It is in this sense that connectionists refer to connection weights as the system's knowledge. Neurons this middle layer also receive input from the same- and top-level neurons. Same-level neurons tend to inhibit each other, while top-layer neurons bias (or prime) mid-layer neurons' activity. These activations are added to the net input each mid-layer neuron receives and they correspond to the prior probability of a feature (in the mid-layer) from the previous paragraph. It is in this sense that Bayesianists refer to the prior term as the system's knowledge.
+
+    What happens when there is a discrepancy between bottom-up and top-down signals? First, there are several ways in which this could happen:
+    - In one scenario, there might be a strong prior expectation (strong top-down priming) of one feature and a strong bottom-up evidence for another feature. Intuitively, this corresponds to a **surprising** situation and it might be a basis of attentional priority (likely, only one of the bases). Given the integration of Bayesian-inference and connectionist models of perception (McClelland, 2013), the idea that surprise is caused by strong top-level activation in an interactive-activation neural network is compatible with the conceptualization of surprise as the Bayesian update of prior knowledge.
+    - In another scenario, there might be a small number of competing hypotheses represented at the top level that remain activated after the perception settles on an equillibrium because there is not enough evidence to favor just one. That is, bottom-up data results in a pattern in which several specific high-level features are strongly and persistently activated. Intuitively, this corresponds to **uncertainty** or **conflict** caused by the stimulus. In Bayesian terms, this corresponds to a high entropy of the posterior, which how knowledge gaps in Loewenstein's theory are operationalized. This situation might correspond to some form of curiosity.
+    - In yet another scenario, the bottom-up data might activate many different representations at the higher level. This might indicate the lack of high-level encoding of the data. Here, the stimulus might be perceived as **complex**. This scenario is different from that of conflict/uncertainty because it activates many competing representations that do not permit an efficient encoding of the data at higher levels.
+    - Finally, the bottom-up data might not sufficiently activate any higher-level encoding. This might serve as an indication that prior-knowledge lacks a "model" for the incoming data and the stimulus might be perceived as **novel**. The distinction between this scenario and the scenario of complexity is that here, the bottom-up data does not provide evidence for any higher-level feature, whereas in the other case, multiple alternative interpretations are favored.
+
+\subsection{Causality}
+
+    Forward and backward curiosity (see Shin as cited in Hidi & Renninger, 2019). Forward curiosity -- what happens next, given current state and action? Backward curiosity -- given current state and action, what might have happened before?
+
+    When I hear a notification sound from my smartphone, I get curious about who it might be (e.g. which app, which person, etc). Here I perceive uncertainty about the cause of an event. However, here, I am not trying to determine the latent structure of the world -- I am not trying to understand who, in general, sends me stuff. I just want to know who is pinging me and why.
+
+\subsection{Limitations of the monster study}
+
+    
+
+\subsection{Limitations of the metacognition study}
+
