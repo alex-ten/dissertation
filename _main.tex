@@ -17,8 +17,9 @@
 % Bibliographies
 % **************
 \addbibresource{Bibliography.bib}
-\addbibresource{my_library.bib}
-\addbibresource{curiosity.bib}
+\addbibresource{_refs_my_library.bib}
+\addbibresource{_refs_curiosity.bib}
+\addbibresource{_refs_info_seeking.bib}
 
 % ***********
 % Hyphenation
@@ -41,9 +42,9 @@
 
 
 %region    FRONTMATTER *********************************************************
-\include{FrontBackmatter/DirtyTitlepage}
-\include{FrontBackmatter/Titlepage}
-\include{FrontBackmatter/Titleback}
+% \include{FrontBackmatter/DirtyTitlepage}
+% \include{FrontBackmatter/Titlepage}
+% \include{FrontBackmatter/Titleback}
 % \cleardoublepage\include{FrontBackmatter/Dedication}
 % \cleardoublepage\include{FrontBackmatter/Abstract}
 % \cleardoublepage\include{FrontBackmatter/Publications}
@@ -53,20 +54,33 @@
 
 
 %region    MAINMATTER ************************************************************
-\cleardoublepage
+% \cleardoublepage
 \pagestyle{scrheadings}
 \pagenumbering{arabic}
 %\setcounter{page}{90}
-\cleardoublepage % use \cleardoublepage here to avoid problems with pdfbookmark
-\part{State of the Art}\label{pt:manual}
-    \ctparttext{This part presents a comprehensive review of psychological and computational literature relating to curiosity and intrinsic motivation.}
+% \cleardoublepage % use \cleardoublepage here to avoid problems with pdfbookmark
+
+\ctparttext{This part presents a comprehensive review of psychological and computational literature relating to curiosity and intrinsic motivation.}
+\part{State of the Art}\label{pt:state-of-the-art}
+
     % \include{Chapters/Chapter01}
-    \include{Chapters/Chapter02}
-    \cleardoublepage
-    % \include{Chapters/Chapter03}
+    % \cleardoublepage
     
-% \part{Contributions}\label{pt:showcase}
-%     \include{Chapters/Chapter02}
+    % \include{Chapters/Chapter02}
+    % \cleardoublepage
+    
+    % \include{Chapters/Chapter03}
+    % \cleardoublepage
+    
+\part{Contributions}\label{pt:contributions}
+    % \include{Chapters/Chapter04}
+    % \cleardoublepage
+
+    \include{Chapters/Chapter05}
+    \cleardoublepage
+
+
+
 %     % \addtocontents{toc}{\protect\clearpage} % <--- just debug stuff, ignore
 %     \include{Chapters/Chapter03}
     % \include{multiToC} % <--- just debug stuff, ignore for your documents
