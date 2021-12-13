@@ -21,9 +21,9 @@ What information does the human brain access and represent in order to compute t
 % A taxonomy
 Despite the similarities, we can identify two fairly distinct families of mechanisms. The first one -- called \emph{performance-based mechanisms} -- assumes that the meta-module computes \ac{LP} based on the task module's performance. Here, the task module is essentially a blackbox and the meta-module's job is to infer how this blackbox learns by observing its behavior. The second family -- \emph{introspective mechanisms} -- assumes that \ac{LP} is computed by observing the structural changes in the task module itself. Here, the meta-module has elevated access to the task module's inner structure, which allows it to observe and quantify changes in the task module as it learns its task.
 
-\section{Mechanisms of progress computation}
+\section{Mechanisms of Progress Computation}
 
-\subsection{Performance-based mechanisms}\label{subsec:performance-based_mechanisms}
+\subsection{Performance-based Mechanisms}\label{subsec:performance-based_mechanisms}
 
 % Schmidhuber (1991)
 A commonly used approach to estimating \ac{LP} in \ac{AI}, is to compute a temporal derivative of the task module's performance trajectory. Computational architectures of intrinsically-motivated exploration provide numerous examples of how such computations can be carried out and what information needs to be represented to support them. An early algorithm by Schmidhuber \cite{schmidhuber_curious_1991} estimates \ac{LP} as:
@@ -98,7 +98,7 @@ To compute \ac{LP}, the learner would need to compare confidence or (proxy-)comp
 \end{equation}
 where $\mathrm{GP}_t$ is the goal-proximity measure at time $t$ based on the data and prior knowledge at that point in time.
 
-\subsection{Introspective approaches}\label{subsec:introspective_approaches}
+\subsection{Introspective Approaches}\label{subsec:introspective_approaches}
 
 Introspective approaches to computing \ac{LP} are based on the model of the learning process of the task module. In contrast to the performance-based mechanisms, where the meta-module observes consequences of the task module's behavior, the introspective accounts require specifying how the task module itself adapts to its task demands. How \ac{LP} is computed depends entirely on the learning mechanism\footnote{In this particular instance, the mechanism refers to any learning rule that determines how the task module's behavior changes by data. Bayesian models of learning typically avoid implementational claims about the underlying mechanisms, yet they describe how the system's knowledge changes (or how it should change).} specified for the task module. Note that for methods reviewed in this section, the time over which \ac{LP} is computed is implicit -- a measurement is performed each time an arbitrary amount of data is processed by the task module.
 
@@ -132,7 +132,7 @@ Poli et al. \cite{poli_infants_2020} studied a probabilistic model of infant att
 \end{equation}
 where $p^j$ is the posterior distribution of the parameters determining the prediction on trial $j$. This form of \ac{LP} can be interpreted as the degree to which predictions of the task model change. Implicitly, because of the stationarity of environment and the optimality of Bayesian inference, these changes lead to more accurate predictions. Note, that this \ac{LP} measure seems less introspective compared to the previous two, but I include it in this section because it based solely on the expectations (at different points in time) derived from the task module -- no evaluation of these expectations by the meta-module is necessary. 
 
-\section{Open challenges}
+\section{Open Challenges}
 
 % Performance-based vs introspective metacognition
 Given the breadth and the diversity of mechanisms computational mechanisms, which approach can we expect to be good for cognitive modeling of \ac{LP} judgments in humans? While not necessarily incompatible with introspective mechanisms, performance-based approaches seem to present a stronger case for warranting further investigation. People rely on competence metrics and external feedback when they need to evaluate their performance \cite{marti_certainty_2018,desender_subjective_2018,locke_performance_2020}. While self-evaluation without external feedback is possible and often a reality, having feedback makes us more confident in our evaluations \cite{rouault_forming_2019} and is often actively sought out despite being costly \cite{holm_episodic_2019,fitzgibbon_lure_2021}. More fundamentally, some kind of objective measure is essential for learning -- whether it is a performance metric or binary feedback. While introspective mechanisms do not rely on such measures explicitly for computing \ac{LP}, they are based on learning achieved through by optimizing an objective. Objectives are explicit in machine learning models, but even Bayesian inference can be viewed as an optimization of an objective (e.g., entropy, surprise, or free energy \cite{friston_free-energy_2009}).
@@ -149,10 +149,22 @@ Another question concerns the temporal extent of progress judgments. We have see
 Fixed time-window computation might be too restrictive to account for the diversity of learning trajectories across different tasks. Shorter time windows are more useful for easier tasks where learning progresses rapidly, while longer time windows are more appropriate for more slowly developing skills. Fixed time-window computation also requires ad hoc assumptions to handle situations in which the reference point extends beyond what is available. For example, given a time window of size $\tau$, the learner would require at least $\tau$ performance evaluations to compute \ac{LP}, unless the parameter is allowed to vary in the beginning. A more flexible approach would be to reset the reference point to when the task is switched to. This would turn the relationship between \ac{LP} and its temporal extent upside down: instead of \ac{LP} depending on the fixed time window, the temporal extent of \ac{LP} judgments would depend on the rate of learning (assuming that low \ac{LP} signals the need to disengage from the current task). This computational approach is in line with psychological metacognition literature, namely the \emph{Region of Proximal Learning} theory \cite{metcalfe_region_2005}. This theory proposes that once a task is chosen, the amount of time spent on the task will depend on \ac{LP}, here defined as the contrast between the competence judgment at the beginning of task engagement and the dynamic judgment of competence that changes over the course of task engagement.
 
 % Summary
-In summary, I propose to assume that in commonly encountered tasks devoid of clear performance feedback, \ac{LP} computation is based on performance data that learners decide to monitor. Such data may not correspond to our preconceived objective criteria, so it needs to be validated empirically. What measures learners consider is only one piece of a puzzle. To understand \ac{LP} computation more fully, we also need to understand what they compare the monitored measures to. The next section describes a behavioral study for addressing these issues.
+In summary, I propose to assume that in commonly encountered tasks devoid of clear performance feedback, \ac{LP} computation is based on performance data that learners decide to monitor. Such data may not correspond to our preconceived objective criteria, so it needs to be validated empirically. What measures learners consider is only one piece of a puzzle. To understand \ac{LP} computation more fully, we also need to understand what they compare the monitored measures to. The next section describes an ongoing behavioral study for addressing these issues.
 
-\section{Empirical study of improvement judgments}
-To study 
+\section{Empirical Study of Improvement Judgments}
+We can study the computational tenets behind metacognitive judgments of improvement by letting participants practice a skill and measuring subjective self-evaluations of their performance and improvement. To increase the ecological validity of the results, we want to emulate the naturalistic learning process which is extended in time, interrupted by other daily activities, and does not feature advanced external performance intel. To meet these demands, we have designed a sensorimotor learning activity presented to participants as a video game, called \emph{Lunar Lander}. The goal of the game is to guide a spacecraft onto a landing platform in a controlled manner so that it does not crash on impact with the ground. To collect participants' subjective judgments about their performance, we solicit the corresponding verbal reports. The secondary objective of the study is to evaluate the impact of subjective judgments of self-performance on the motivation to engage in the task. For this, we employ existing verbal psychometric instruments and behavioral techniques for measuring intrinsic motivation.
+
+\subsection{The Lunar Lander Game}
+
+\subsection{Verbal Reports}
+
+\subsection{Intrinsic Motivation}
+
+\subsection{Procedure}
+
+\subsection{Pilot Study}
+
+\subsection{Discussion}
 
 % How can learning dynamics be evaluated objectively? To get started, consider an analogy with classical mechanics. In classical mechanics, objects are characterized by their position measured in some coordinate system (which can be 2D or 3D, for example). Object position provides an instantaneous description -- a snapshot -- of the object. Velocity is the first-order temporal derivative of position and it describes how position changes per an infinitesimally small unit of time. 
 
