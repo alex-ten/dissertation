@@ -1,12 +1,12 @@
-%region    PREAMBLE *************************************************************
 \RequirePackage{silence} % :-\
     \WarningFilter{scrreprt}{Usage of package `titlesec'}
     %\WarningFilter{scrreprt}{Activating an ugly workaround}
     \WarningFilter{titlesec}{Non standard sectioning command detected}
-\documentclass[ twoside,openright,titlepage,numbers=noenddot,%1headlines,
-                headinclude,footinclude,cleardoublepage=empty,abstract=on,
-                BCOR=5mm,paper=a4,fontsize=11pt
-                ]{scrreprt}
+\documentclass[
+    twoside,openany,titlepage,numbers=noenddot,%1headlines,
+    headinclude,footinclude,cleardoublepage=empty,abstract=on,
+    BCOR=5mm,paper=a4,fontsize=11pt
+]{scrreprt}
 
 % ***************************************
 % Note: Make all your adjustments in here
@@ -17,6 +17,7 @@
 % Bibliographies
 % **************
 \addbibresource{Bibliography.bib}
+\addbibresource{_refs_nature_article.bib}
 \addbibresource{_refs_my_library.bib}
 \addbibresource{_refs_curiosity.bib}
 \addbibresource{_refs_info_seeking.bib}
@@ -26,10 +27,35 @@
 % ***********
 %\hyphenation{put special hyphenation here}
 
+
 % ******************
-% GO!GO!GO! MOVE IT!
+% Subappendices
 % ******************
-%endregion PREAMBLE *************************************************************
+\AtBeginEnvironment{subappendices}{
+    \addcontentsline{toc}{chapter}{Appendices}
+    \counterwithin{figure}{section}
+    \counterwithin{table}{section}
+}
+\AtEndEnvironment{subappendices}{
+    \counterwithout{figure}{section}
+    \counterwithin{figure}{chapter}
+    \counterwithout{table}{section}
+    \counterwithin{table}{chapter}
+}
+
+% ******************
+% Change acronym label colors
+% ******************
+\makeatletter
+\AtBeginDocument{%
+  \renewcommand*{\AC@hyperlink}[2]{%
+    \begingroup
+      \hypersetup{linkcolor=RubineRed}%
+      \hyperlink{#1}{#2}%
+    \endgroup
+  }%
+}
+\makeatother
 
 \begin{document}
 \frenchspacing
@@ -73,11 +99,13 @@
     % \cleardoublepage
     
 \part{Contributions}\label{pt:contributions}
-    % \include{Chapters/Chapter04}
-    % \cleardoublepage
-
-    \include{Chapters/Chapter05}
+    \include{Chapters/Chapter04}
+    \include{Chapters/Chapter04A}
     \cleardoublepage
+
+    % \include{Chapters/Chapter05}
+    % \include{Chapters/Chapter05A}
+    % \cleardoublepage
 
 
 

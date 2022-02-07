@@ -56,7 +56,7 @@
 % \newcommand{\myDepartment}{Put data here\xspace}
 \newcommand{\myUni}{University of Bordeaux\xspace}
 \newcommand{\myLocation}{Bordeaux\xspace}
-\newcommand{\myTime}{November 2021\xspace}
+\newcommand{\myTime}{March 2022\xspace}
 \newcommand{\myVersion}{\classicthesis}
 
 % ********************************************************************
@@ -86,15 +86,31 @@
   %backend=biber,bibencoding=utf8, %instead of bibtex
   backend=bibtex8,bibencoding=ascii,%
   language=auto,%
-  style=numeric-comp,%
-  %style=authoryear-comp, % Author 1999, 2010
+%   style=numeric-comp,%
+  style=authoryear-comp, % Author 1999, 2010
   %bibstyle=authoryear,dashed=false, % dashed: substitute rep. author with ---
   sorting=none, % set to `nyt` for sorting by name, year, title
-  maxbibnames=10, % default: 3, et al.
+  maxbibnames=3, % default: 3, et al.
+  date=year,
+  isbn=false,
+  sorting=nyvt,
   %backref=true,%
   natbib=true % natbib compatibility mode (\citep and \citet still work)
 }{biblatex}
     \usepackage{biblatex}
+
+% Cite year with hyperlinks (added by me)
+\DeclareCiteCommand{\citeyear}
+    {}
+    {\bibhyperref{\printdate}}
+    {\multicitedelim}
+    {}
+
+\DeclareCiteCommand{\citeyearpar}
+    {}
+    {\mkbibparens{\bibhyperref{\printdate}}}
+    {\multicitedelim}
+    {}
 
 \PassOptionsToPackage{fleqn}{amsmath}       % math environments and more by the AMS
   \usepackage{amsmath}
@@ -181,7 +197,7 @@
   % pdfpagemode=UseOutlines,%
   plainpages=false, bookmarksnumbered, bookmarksopen=true, bookmarksopenlevel=1,%
   hypertexnames=true, pdfhighlight=/O,%nesting=true,%frenchlinks,%
-  urlcolor=CTurl, linkcolor=CTlink, citecolor=CTcitation, %pagecolor=RoyalBlue,%
+  urlcolor=CTurl, linkcolor=CTlink, citecolor=RubineRed, %pagecolor=RoyalBlue,%
   %urlcolor=Black, linkcolor=Black, citecolor=Black, %pagecolor=Black,%
   pdftitle={\myTitle},%
   pdfauthor={\textcopyright\ \myName, \myUni, \myFaculty},%
@@ -275,3 +291,12 @@
 \usepackage{tikz}
 \newcommand*\circled[1]{\tikz[baseline=(char.base)]{
             \node[shape=circle,draw,inner sep=1.5pt] (char) {#1};}}
+
+
+% ********************************************************************
+% Added by me
+% ********************************************************************
+\usepackage{appendix}
+\usepackage{multirow}
+\usepackage{paralist}
+\usepackage[capitalize]{cleveref}
